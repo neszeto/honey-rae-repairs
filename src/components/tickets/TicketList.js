@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import "./tickets.css"
 
 
-export const TicketList = () => {
+export const TicketList = ({ searchTermsState }) => {
     const [tickets, setTickets] = useState([])
     const [filteredTickets, setFiltered] = useState([])
 
@@ -15,6 +15,16 @@ export const TicketList = () => {
     const localHoneyUser = localStorage.getItem("honey_user") //gets "honey_user" out of local storage
     const honeyUserObject = JSON.parse(localHoneyUser) //turns from string into object
 
+    useEffect(
+        () => {
+            const searchedTickets = tickets.filter(ticket => {
+                return ticket.description.toLowerCase().startsWith(searchTermsState.toLowerCase()) //both are set to lowercase so it will always match 
+            })
+            setFiltered(searchedTickets)
+        },
+        [searchTermsState]
+
+    )
     useEffect(
         () => {
             fetch (`http://localhost:8088/serviceTickets`)

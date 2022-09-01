@@ -7,7 +7,7 @@ export const TicketForm = () => {
         initial state object
     */
     const [ticket, update] = useState({ //ticket is an object with description as ""  and emergency as false
-        description:  "", //these re the detail properties when user has not typed input yet 
+        description:  "", //these are the detail properties when user has not typed input yet 
         emergency: false
     })
     /*
