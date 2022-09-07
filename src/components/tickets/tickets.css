@@ -10,3 +10,21 @@
     padding: 0.7rem;
     margin: 0.5rem; 
 }
+
+.description_box {
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+.description_field {
+    height: 15em;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between; 
+}
